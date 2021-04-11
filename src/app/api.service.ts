@@ -10,15 +10,17 @@ export class ApiService {
     API_SERVER = "http://localhost:3000";
 
     public addUrl(full_url: string) {
-        return this.httpClient.post(`${this.API_SERVER}/url/create`, full_url);
+        return this.httpClient.post(`${this.API_SERVER}/url/create`, { 
+            full_url 
+        });
     }
 
     public getAllUrls() {
         return this.httpClient.get(`${this.API_SERVER}/url/all`);
     }
 
-    public redirectToFullUrl(tiny_url: string) {
-        this.httpClient.get(`${this.API_SERVER}/url/${tiny_url}`);
+    public getFullUrl(tiny_url: string) {
+        return this.httpClient.get(`${this.API_SERVER}/url/${tiny_url}`);
     }
 
     public register(email: string, password: string) {
@@ -35,12 +37,16 @@ export class ApiService {
         });
     }
 
+    public logout() {
+        return this.httpClient.post(`${this.API_SERVER}/user/logout`, {});
+    }
+
     public getCurrentUser() {
-        return this.httpClient.get(`${this.API_SERVER}/urls`);
+        return this.httpClient.get(`${this.API_SERVER}/user`);
     }
 
     public updateUser(password: string) {
-        return this.httpClient.patch(`${this.API_SERVER}/urls`, password);
+        return this.httpClient.patch(`${this.API_SERVER}/user`, password);
     }
 }
 

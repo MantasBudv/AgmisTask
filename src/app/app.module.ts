@@ -3,8 +3,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import { CommonModule } from '@angular/common';  
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DataSharingService } from './data-sharing.service';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -19,6 +21,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { RedirectComponent } from './redirect/redirect.component';
 
 @NgModule({
   declarations: [
@@ -26,10 +29,12 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    RedirectComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -42,7 +47,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     MatInputModule,
     MatFormFieldModule
   ],
-  providers: [],
+    providers: [ DataSharingService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

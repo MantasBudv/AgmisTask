@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { ApiService } from '../api.service';
 })
 export class LoginComponent implements OnInit {
 
-    constructor(private api: ApiService, private formBuilder: FormBuilder) {}
+    constructor(private router: Router, private api: ApiService) {}
 
     email = new FormControl('', [Validators.required, Validators.email]);
     password = new FormControl('', [Validators.required, Validators.minLength(8)]);
@@ -33,11 +34,9 @@ export class LoginComponent implements OnInit {
     onLogin() {
         if (this.getErrorMessageEmail() === '' && this.getErrorMessagePassword() === '') {
             this.api.login(this.email.value, this.password.value).subscribe((res: any ) => {
-                console.log(res.message)
                 alert(res.message)
-                location.replace('')
+                this.router.navigate(['']);
             },(error) => {
-                console.log(error)
                 alert(error.error.message)
             });
         }
@@ -45,6 +44,11 @@ export class LoginComponent implements OnInit {
 
 
     ngOnInit(): void {
+        this.api.getCurrentUser().subscribe((res: any ) => {
+            if (res !== null) {
+                this.router.navigate(['']);
+            }
+        });
     }
 
 }

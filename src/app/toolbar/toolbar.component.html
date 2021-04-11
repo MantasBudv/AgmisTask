@@ -1,5 +1,6 @@
 <mat-toolbar>
-    <a mat-button routerLink="" class="title spacer-right" color="primary">Agmis Tiny Url Task</a>
-    <a mat-button routerLink="register" color="accent">Sign Up</a>
-    <a mat-button routerLink="login" color="accent">Sign In</a>
+    <a mat-button routerLink="" class="title spacer-right">Agmis Tiny Url Task</a>
+    <a mat-button routerLink="register" *ngIf="!isUserLoggedIn">Sign Up</a>
+    <a mat-button routerLink="login" *ngIf="!isUserLoggedIn">Sign In</a>
+    <a mat-button (click)="logout()" *ngIf="isUserLoggedIn">Log out</a>
 </mat-toolbar>
