@@ -1,4 +1,4 @@
-@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+@import "~@angular/material/prebuilt-themes/purple-green.css";
 
 * {
     box-sizing: border-box;
@@ -10,4 +10,38 @@ html, body { height: 100%; }
 body { 
     margin: 0; 
     font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+.login-register-container {
+    max-width: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    a {
+        color: #10bde5;
+    }
+    button {
+        background-color: #10bde5;
+        color: #fff;
+    }
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+        color: #575e64;
+    }
+    input.mat-input-element {
+        color: #575e64;
+    }
+    .mat-form-field-label {
+        color: #343a40;
+    }
+}
+.mat-card {
+    background-color: #fff;
+    color: #343a40;
+}
+.text-center {
+    text-align: center;
+}
+.full-width {
+    width: 100%;
 }
