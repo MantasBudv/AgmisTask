@@ -8,11 +8,14 @@ $black: #343a40;
     padding: 0;
 }
 
-html, body { height: 100%; }
+html, body { 
+    height: 100%;
+    min-height: 100%; 
+    background: url('./assets/background.jpg');
+}
 body { 
     margin: 0; 
     font-family: Roboto, "Helvetica Neue", sans-serif; 
-    background: url('./assets/background.jpg');
 }
 .login-register {
     position: absolute;
@@ -22,7 +25,7 @@ body {
 }
 .form {
     max-width: 600px;
-    min-width: 350px;
+    min-width: 300px;
     background-color: rgba(255,255,255,0.8) !important;
     a {
         color: #10bde5;

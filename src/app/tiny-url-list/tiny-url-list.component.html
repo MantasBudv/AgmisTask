@@ -1,0 +1,18 @@
+<div class="wrapper">   
+    <mat-card class="form list">
+        <mat-card-content>
+            <h1 class="text-center">Your TinyURLs</h1>
+            <h1 class="text-center" *ngIf="!urls.length">No tinyURLs created!</h1>
+            <div class="url" *ngFor="let url of getUrls(); index as i">
+                <div class="flex-column">
+                    <a class="bigger" mat-button (click)="redirect(url.full_url)">localhost:4200/{{ url.tiny_url }}</a>
+                    <a mat-button (click)="redirect(url.full_url)">{{ url.full_url }}</a>
+                </div>
+                <div>
+                    <button (click)="deleteUrl(url.tiny_url)" mat-button class="delete">Delete</button>
+                </div>
+            </div>
+            <mat-paginator [length]="length" [pageIndex]="pageIndex" [pageSize]="pageSize" (page)="updatePaginatorValues($event)"></mat-paginator>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -25,6 +25,8 @@ import { RegisterComponent } from './register/register.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { RedirectComponent } from './redirect/redirect.component';
 import { EditComponent } from './edit/edit.component';
+import { TinyUrlFormComponent } from './tiny-url-form/tiny-url-form.component';
+import { TinyUrlListComponent } from './tiny-url-list/tiny-url-list.component';
 
 @NgModule({
     declarations: [
@@ -34,7 +36,9 @@ import { EditComponent } from './edit/edit.component';
         RegisterComponent,
         ToolbarComponent,
         RedirectComponent,
-        EditComponent
+        EditComponent,
+        TinyUrlFormComponent,
+        TinyUrlListComponent
     ],
     imports: [
         BrowserModule,

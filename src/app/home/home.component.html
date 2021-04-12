@@ -1,40 +1,4 @@
 <div class="container" *ngIf="loadPage">
-    <div class="wrapper">   
-        <mat-card class="form">
-            <form (ngSubmit)="onCreateUrl()">
-                <mat-card-content>
-                    <mat-label class="label"><mat-icon aria-hidden="false" aria-label="Example home icon">link</mat-icon> Enter a long URL to make a TinyURL</mat-label>
-                    <mat-form-field appearance="outline" class="full-width" floatLabel="always">
-                        <mat-label>Url</mat-label>
-                        <input matInput [formControl]="fullUrl" required>
-                        <mat-error *ngIf="fullUrl.invalid">{{getErrorMessageFullUrl()}}</mat-error>
-                    </mat-form-field>
-                    <mat-label *ngIf="shortUrl" class="label"><mat-icon aria-hidden="false" aria-label="Example home icon">create</mat-icon> TinyURL</mat-label>
-                    <mat-form-field *ngIf="shortUrl" appearance="outline" class="full-width">
-                        <input matInput [value]="shortUrl" readonly>
-                    </mat-form-field>
-                </mat-card-content>
-                <mat-card-actions>
-                    <button mat-button class="full-width">Make TinyURL</button>
-                </mat-card-actions>
-            </form>
-        </mat-card>
-    </div>
-    <div class="wrapper">   
-        <mat-card class="form list">
-            <mat-card-content>
-                <h1 class="text-center">Your TinyURLs</h1>
-                <div class="url" *ngFor="let url of getUrls(); index as i">
-                    <div class="flex-column">
-                        <a class="bigger" mat-button (click)="redirect(url.full_url)">localhost:4200/{{ url.tiny_url }}</a>
-                        <a mat-button (click)="redirect(url.full_url)">{{ url.full_url }}</a>
-                    </div>
-                    <div>
-                        <button (click)="deleteUrl(url.tiny_url)" mat-button class="delete">Delete</button>
-                    </div>
-                </div>
-                <mat-paginator [length]="length" [pageIndex]="pageIndex" [pageSize]="pageSize" (page)="updatePaginatorValues($event)"></mat-paginator>
-            </mat-card-content>
-        </mat-card>
-    </div>
+    <app-tiny-url-form></app-tiny-url-form>
+    <app-tiny-url-list></app-tiny-url-list>
 </div>

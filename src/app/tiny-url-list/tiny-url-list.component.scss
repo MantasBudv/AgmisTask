@@ -1,0 +1,100 @@
+:host {
+    width: 50%;
+    .wrapper {
+        width: 100%;
+        min-height: calc(100vh - 64px);
+        .list {
+            margin: 0 0 0 auto;
+            max-width: 600px;
+            min-height: calc(100vh - 64px);
+            padding-left: 0;
+            padding-right: 0;
+            .mat-card-content{
+                h1 {
+                    font-weight: 700;
+                    margin-bottom: 3rem;
+                }
+                .url {
+                    border-bottom: 1px solid rgb(0, 0, 0, 0.1);
+                    display: flex;
+                    padding: 1rem;
+                    &:first-of-type {
+                        border-top: 1px solid rgb(0, 0, 0, 0.1);
+                    }
+                    &:last-of-type {
+                        margin-bottom: 40px;
+                    }
+                    div {
+                        &:first-of-type {
+                            width: 70%;
+                        }
+                        &:last-of-type {
+                            margin: 0 0 0 auto;
+                            .delete {
+                                background-color: #fb5252;
+                            }
+                        }
+                    }
+                    button {
+                        font-size: 1rem;
+                        border-radius: 10px;
+                        padding: 15px 30px;
+                    }
+                    a {
+                        text-align: left;
+                    }
+                    .bigger {
+                        font-size: 1.2rem;
+                    }
+                }
+                .mat-paginator {
+                    background-color: transparent;
+                    color: #343a40;
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                }
+            }
+        }
+    }
+    
+    @media only screen and (max-width: 850px) {
+        width: 100%;
+        .wrapper {
+            min-height: auto;
+            .list {
+                margin: 0 auto;
+                min-height: auto;
+            }
+        }
+    }
+    @media only screen and (max-width: 450px) {
+        .wrapper {
+            .list {
+                margin: 0 auto;
+                .mat-card-content{
+                    .url {
+                        flex-direction: column;
+                        div {
+                            &:first-of-type {
+                                width: 100%;
+                                margin-bottom: 1rem;
+                                a {
+                                    text-align: center;
+                                }
+                            }
+                            &:last-of-type {
+                                margin: 0 auto;
+                            }
+                        }
+                        button {
+                            font-size: 1rem;
+                            border-radius: 10px;
+                            padding: 10px 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
