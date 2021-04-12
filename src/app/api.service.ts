@@ -15,6 +15,12 @@ export class ApiService {
         });
     }
 
+    public deleteUrl(tiny_url: string) {
+        return this.httpClient.post(`${this.API_SERVER}/url/delete`, { 
+            tiny_url 
+        });
+    }
+
     public getAllUrls() {
         return this.httpClient.get(`${this.API_SERVER}/url/all`);
     }
@@ -46,7 +52,7 @@ export class ApiService {
     }
 
     public updateUser(password: string) {
-        return this.httpClient.patch(`${this.API_SERVER}/user`, password);
+        return this.httpClient.patch(`${this.API_SERVER}/user`, { password });
     }
 }
 

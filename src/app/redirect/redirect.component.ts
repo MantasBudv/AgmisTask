@@ -14,10 +14,10 @@ export class RedirectComponent implements OnInit {
   ngOnInit(): void {
     const tinyUrl = this.router.url.slice(1, this.router.url.length)
     this.api.getFullUrl(tinyUrl).subscribe((res: any ) => {
-        console.log(res.fullUrl)
         location.href = 'http://' + res.fullUrl
     },(error) => {
-        console.log(error.error.message)
+        alert(error.error.message)
+        this.router.navigate(['']);
     });
   }
 

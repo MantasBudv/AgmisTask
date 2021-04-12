@@ -14,14 +14,15 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif; 
     background: url('./assets/background.jpg');
 }
-
-.form {
-    max-width: 600px;
-    min-width: 350px;
+.login-register {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+.form {
+    max-width: 600px;
+    min-width: 350px;
     background-color: rgba(255,255,255,0.8) !important;
     a {
         color: #10bde5;
@@ -58,4 +59,8 @@ body {
 }
 p {
     margin: 0 !important;
+}
+.flex-column {
+    display: flex;
+    flex-direction: column;
 }
